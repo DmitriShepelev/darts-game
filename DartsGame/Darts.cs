@@ -12,7 +12,13 @@ namespace DartsGame
         /// <returns>The earned points.</returns>
         public static int GetScore(double x, double y)
         {
-            throw new NotImplementedException("You need to implement this method.");
+            return true switch
+            {
+                bool _ when (x * x) + (y * y) <= 1 => 10,
+                bool _ when (x * x) + (y * y) <= 5 * 5 => 5,
+                bool _ when (x * x) + (y * y) <= 10 * 10 => 1,
+                _ => 0,
+            };
         }
     }
 }
