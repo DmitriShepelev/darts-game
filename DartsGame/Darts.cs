@@ -12,13 +12,23 @@ namespace DartsGame
         /// <returns>The earned points.</returns>
         public static int GetScore(double x, double y)
         {
-            return true switch
+            var i = (x * x) + (y * y);
+            if (i <= 1)
             {
-                bool _ when (x * x) + (y * y) <= 1 => 10,
-                bool _ when (x * x) + (y * y) <= 5 * 5 => 5,
-                bool _ when (x * x) + (y * y) <= 10 * 10 => 1,
-                _ => 0,
-            };
+                return 10;
+            }
+            else if (i <= 25)
+            {
+                return 5;
+            }
+            else if (i <= 100)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }
